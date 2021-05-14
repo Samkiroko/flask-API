@@ -1,0 +1,12 @@
+{
+  "python.testing.pytestArgs": [
+    "venv"
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.nosetestsEnabled": false,
+  "python.testing.pytestEnabled": true,
+  "cSpell.words": [
+    "jsonify"
+  ],
+  "python.analysis.extraPaths": ["Rest_api", "/Users/sam/Projects/Rest_api/.venv/lib/python3.9/site-packages"]
+}
