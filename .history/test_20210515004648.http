@@ -1,0 +1,10 @@
+GET http://127.0.0.1:5000
+
+
+# {
+#   "name": "Samuel",
+#   "email": "kirokodev@gmail.com",
+#   "address": "Thindigua Mazerus court",
+#   "phone": "+2547133356169"
+
+# }

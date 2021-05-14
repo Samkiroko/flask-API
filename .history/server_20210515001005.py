@@ -58,9 +58,6 @@ def create_user():
         address=data["address"],
         phone=data["phone"],
     )
-    db.session.add(new_user)
-    db.session.commit()
-    return jsonify({"message": "User created"}), 200
 
 
 @app.route("/user/descending_id", methods=["GET"])
