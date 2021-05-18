@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///sqlitedb.file"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = 0
 
-# configure sqlite3 to enforce foreign key contraints
+# configure sqlite3 to enforce foreign key constraints
 
 
 @event.listens_for(Engine, "connect")
@@ -26,7 +26,7 @@ def _set_sqlite_pragma(dbapi_connection, connection_record):
 db = SQLAlchemy(app)
 now = datetime.now()
 
-# models
+#  models
 
 
 class User(db.Model):
@@ -36,10 +36,10 @@ class User(db.Model):
     email = db.Column(db.String(50))
     address = db.Column(db.String(200))
     phone = db.Column(db.String(50))
-    posts = db.relationship("BlogPost", cascade="all, delete")
+    posts = db.relationship("Blogpost")
 
 
-class BlogPost(db.Model):
+class Blogpost(db.Model):
     __tablename__ = "blog_post"
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(50))
@@ -84,48 +84,17 @@ def get_all_user_descending():
 
 @app.route("/user/ascending_id", methods=["GET"])
 def get_all_user_escending():
-    users = User.query.all()
-    all_user_ll = linked_list.LinkedList()
-
-    for user in users:
-        all_user_ll.insert_at_end(
-            {
-                "id": user.id,
-                "name": user.name,
-                "email": user.email,
-                "address": user.address,
-                "phone": user.phone,
-            }
-        )
-    return jsonify(all_user_ll.to_list()), 200
+    pass
 
 
 @app.route("/user/<user_id>", methods=["GET"])
 def get_one_user(user_id):
-    users = User.query.all()
-    all_users_ll = linked_list.LinkedList()
-
-    for user in users:
-        all_users_ll.insert_beginning(
-            {
-                "id": user.id,
-                "name": user.name,
-                "email": user.email,
-                "address": user.address,
-                "phone": user.phone,
-            }
-        )
-    user = all_users_ll.get_user_by_id(user_id)
-
-    return jsonify(user), 200
+    pass
 
 
 @app.route("/user/<user_id>", methods=["DELETE"])
 def delete_user(user_id):
-    user = User.query.filter_by(id=user_id).first()
-    db.session.delete(user)
-    db.session.commit()
-    return jsonify({}), 200
+    pass
 
 
 @app.route("/blog_post/<user_id>", methods=["POST"])

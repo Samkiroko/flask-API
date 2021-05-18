@@ -102,30 +102,12 @@ def get_all_user_escending():
 
 @app.route("/user/<user_id>", methods=["GET"])
 def get_one_user(user_id):
-    users = User.query.all()
-    all_users_ll = linked_list.LinkedList()
-
-    for user in users:
-        all_users_ll.insert_beginning(
-            {
-                "id": user.id,
-                "name": user.name,
-                "email": user.email,
-                "address": user.address,
-                "phone": user.phone,
-            }
-        )
-    user = all_users_ll.get_user_by_id(user_id)
-
-    return jsonify(user), 200
+    pass
 
 
 @app.route("/user/<user_id>", methods=["DELETE"])
 def delete_user(user_id):
-    user = User.query.filter_by(id=user_id).first()
-    db.session.delete(user)
-    db.session.commit()
-    return jsonify({}), 200
+    pass
 
 
 @app.route("/blog_post/<user_id>", methods=["POST"])

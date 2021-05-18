@@ -122,10 +122,7 @@ def get_one_user(user_id):
 
 @app.route("/user/<user_id>", methods=["DELETE"])
 def delete_user(user_id):
-    user = User.query.filter_by(id=user_id).first()
-    db.session.delete(user)
-    db.session.commit()
-    return jsonify({}), 200
+    pass
 
 
 @app.route("/blog_post/<user_id>", methods=["POST"])
