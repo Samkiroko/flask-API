@@ -4,11 +4,16 @@
   ],
   "python.testing.unittestEnabled": false,
   "python.testing.nosetestsEnabled": false,
-  "python.testing.pytestEnabled": true,
+  "python.testing.pytestEnabled": false,
   "cSpell.words": [
     "isdigit",
     "jsonify",
-    "listofwords"
+    "listofwords",
+    "llist"
   ],
-  "python.analysis.extraPaths": ["Rest_api", "/Users/sam/Projects/Rest_api/.venv/lib/python3.9/site-packages"]
+  "python.analysis.extraPaths": [
+    "Rest_api",
+    "/Users/sam/Projects/Rest_api/.venv/lib/python3.9/site-packages"
+  ],
+  "python.testing.promptToConfigure": false
 }

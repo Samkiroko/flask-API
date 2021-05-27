@@ -136,23 +136,7 @@ def create_blog_post(user_id):
     user = User.query.filter_by(id=user_id).first()
     if not user:
         return jsonify({"message": "user does not exist!"}), 400
-
-    ht = hash_table.HashTable(10)
-
     ht.add_key_value("title", data["title"])
-    ht.add_key_value("body", data["body"])
-    ht.add_key_value("date", now)
-    ht.add_key_value("user_id", user_id)
-
-    new_blog_post = BlogPost(
-        title=ht.get_value("title"),
-        body=ht.get_value("body"),
-        date=ht.get_value("date"),
-        user_id=ht.get_value("user_id"),
-    )
-    db.session.add(new_blog_post)
-    db.session.commit()
-    return jsonify({"message": "new blog post created"}), 200
 
 
 @app.route("/user/<user_id>", methods=["GET"])
